@@ -1,5 +1,5 @@
 import { useFormContext  } from "react-hook-form";
-import { Title } from "./styled";
+import { SearchInput } from "./styled";
 
 type FormData = {
     filmTitle: string;
@@ -8,9 +8,6 @@ type FormData = {
 export default function SearchBar() {
   const { register } = useFormContext<FormData>();
   return(
-    <div>
-      <Title>Search film using film title</Title>
-      <input {...register("filmTitle")} placeholder="Enter film title" />
-    </div>
+    <SearchInput {...register("filmTitle")} placeholder="Enter film title" />
   )
 }

@@ -11,11 +11,4 @@ const Wrapper = styled.section`
   text-align: center;
 `;
 
-const SearchInput = styled.input`
-    padding: 0.5em;
-    margin: 0.5em;
-    border: solid 1px gray;
-    border-radius: 3px;
-`;
-
-export {  Wrapper, Title, SearchInput }
+export {  Wrapper, Title }

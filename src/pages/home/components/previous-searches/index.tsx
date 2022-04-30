@@ -1,5 +1,6 @@
 import { useFormContext  } from "react-hook-form";
-import usePreviousSearches from "../../../hooks/use-previous-searches";
+import usePreviousSearches from "../../../../hooks/use-previous-searches";
+import { ResultItem, Results, Title } from "./styled";
 
 type FormData = {
     filmTitle: string;
@@ -10,13 +11,15 @@ export default function PreviousSearches(){
     const { setValue } = useFormContext<FormData>();
 
     return(
-      <div>
-        <h2>Previous searches</h2>
+      <Results>
+        <Title>Previous searches {searches.length}</Title>
         {searches.map((({title}) => (
-          <li 
+          <ResultItem 
             key={title}
             onClick={() => setValue('filmTitle', title)}
-          >{title}</li>)))}
-      </div>
+          >
+              {title}
+        </ResultItem>)))}
+      </Results>
     )
 }
