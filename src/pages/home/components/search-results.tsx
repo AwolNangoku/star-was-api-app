@@ -35,7 +35,7 @@ export default function SearcResults() {
         <div>
             <h2>Search results: {count}</h2>
             {isLoading ? <Loader /> : films.map((film: any) => {
-                const filmId = film.url.substring(films[0]?.url.length-2, films[0]?.url.length-1);
+                const filmId = film.url.substring(film?.url.length-2, film?.url.length-1);
                 return <li key={filmId} onClick={() => navigate(generatePath(`/film/:id`, {id: filmId}))}>{film.title}</li>
             })}
                 `   `
