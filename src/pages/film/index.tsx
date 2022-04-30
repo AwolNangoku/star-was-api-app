@@ -2,25 +2,29 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Loader from '../../components/loader';
+import { PageLayout } from '../../components/structure';
 import { useFilmId } from '../../hooks/use-film-id';
+import { ResultItem, Results, ItemContent } from './styled';
 
 function Film() {
     const {id} = useParams();
     const film = useFilmId(id);
 
-    return film ? (
-        <div>
-          <h2>Film Details</h2>
-            <ul>
-                <li>Title: {film.title}</li>
-                <li>Release date: {film.release_date}</li>
-                <li>Producer: {film.producer}</li>
-                <li>Director: {film.director}</li>
-            </ul>
-
-            <NavLink to="/">Back to Home</NavLink>
-        </div>
-    ): <Loader />
+    return (
+        <PageLayout title='Film Details'>
+            {film ? (
+                <>
+                    <Results>
+                        <ResultItem>Title: <ItemContent>{film.title}</ItemContent></ResultItem>
+                        <ResultItem>Release date: <ItemContent>{film.release_date}</ItemContent></ResultItem>
+                        <ResultItem>Producer:  <ItemContent>{film.producer}</ItemContent></ResultItem>
+                        <ResultItem>Director: <ItemContent>{film.director}</ItemContent></ResultItem>
+                    </Results>
+                    <NavLink to="/">Back to Home</NavLink>
+                </>
+            ) : <Loader />}
+        </PageLayout>
+    )
 }
 
 export default Film;
