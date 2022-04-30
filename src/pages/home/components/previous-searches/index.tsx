@@ -12,7 +12,7 @@ export default function PreviousSearches(){
 
     return(
       <Results>
-        <Title>Previous searches {searches.length}</Title>
+        <Title>Previous searches: {searches.length}</Title>
         {searches.map((({title}) => (
           <ResultItem 
             key={title}

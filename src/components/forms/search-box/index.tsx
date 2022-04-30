@@ -8,6 +8,6 @@ type FormData = {
 export default function SearchBar() {
   const { register } = useFormContext<FormData>();
   return(
-    <SearchInput {...register("filmTitle")} placeholder="Enter film title" />
+    <SearchInput {...register("filmTitle")} placeholder="search film e.g A New Hope" />
   )
 }

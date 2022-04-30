@@ -6,7 +6,7 @@ import { PageLayout } from '../../components/structure';
 import { useFilmId } from '../../hooks/use-film-id';
 import { ResultItem, Results, ItemContent } from './styled';
 
-function Film() {
+export default function Film() {
     const {id} = useParams();
     const film = useFilmId(id);
 
@@ -26,5 +26,3 @@ function Film() {
         </PageLayout>
     )
 }
-
-export default Film;
